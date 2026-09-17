@@ -37,7 +37,7 @@ export default function Navbar() {
 
   useGSAP(
     () => {
-      const desktopLinks = navRef.current?.querySelectorAll("a");
+      const desktopLinks = navRef.current?.querySelectorAll("a") ?? [];
 
       const introTimeline = gsap.timeline({
         defaults: {
