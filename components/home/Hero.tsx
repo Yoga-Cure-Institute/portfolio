@@ -4,20 +4,20 @@ import { FiArrowRight } from "react-icons/fi";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#161616] text-white">
+    <section className="relative overflow-hidden bg-[#3B2A26] text-white pt-5 ">
       {/* Background Image */}
       <Image
-        src="/images/home/yci-hero.png"
+        src="/images/home/home-hero.jpg"
         alt="Meditation beside a peaceful riverside temple"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-contain object-right pr-10"
         fill
         priority
       />
 
       {/* Cinematic Overlay */}
-      <div className="absolute inset-0 bg-black/30" />
+      {/* <div className="absolute inset-0 bg-black/30" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-black/5" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10" /> */}
 
       {/* Content */}
       <div className="relative mx-auto flex min-h-[560px] w-[calc(100%-24px)] max-w-[1400px] items-end px-1 py-12 sm:w-[calc(100%-32px)] sm:px-2 md:py-16 lg:min-h-[660px] lg:py-20">
@@ -67,12 +67,12 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-7 right-8 hidden items-center gap-3 text-white/55 lg:flex">
-        <span className="text-[9px] uppercase tracking-[0.18em]">
-          Scroll to explore
+      <div className="absolute bottom-2 right-8 hidden items-center gap-3 text-white lg:flex">
+        <span className="text-[16px] uppercase tracking-[0.18em]">
+          Buddha Bose
         </span>
 
-        <span className="h-10 w-px bg-white/30" />
+        <span className="h-10 w-px bg-white" />
       </div>
     </section>
   );

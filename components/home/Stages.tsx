@@ -9,7 +9,7 @@ const stages = [
     description:
       "Traditional system of yoga practice for specific health conditions, general fitness and core strength training.",
     image:
-      "https://images.unsplash.com/photo-1640117227173-b6970c105b1e?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "/images/home/Ardha_Chandrasana.png",
   },
   {
     number: "02",
@@ -17,7 +17,7 @@ const stages = [
     description:
       "Customized system of yoga practice for hormonal, respiratory and other health conditions.",
     image:
-      "https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=1200&q=85",
+      "/images/home/Rooma_De_Maschendrasana.jpg",
   },
 ];
 
@@ -53,22 +53,22 @@ export default function Stages() {
           </Link>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-[910px] gap-7 sm:mt-12 md:grid-cols-2 md:gap-7">
+        <div className="mx-auto mt-10 grid max-w-[910px] gap-10 sm:mt-12 md:grid-cols-2 md:gap-7">
           {stages.map((stage) => (
             <Link key={stage.number} href="/services" className="group block">
-              <div className="relative aspect-[1.55/1] overflow-hidden bg-black">
+              <div className="relative aspect-[4/5] overflow-hidden ">
                 <Image
                   src={stage.image}
                   alt={stage.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, 455px"
+                  sizes="(max-width: 768px) 100vw, 400px"
                   quality={85}
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  className="object-contain transition-transform duration-700 ease-out "
                 />
               </div>
 
-              <div className="mt-4 grid grid-cols-[48px_1fr] gap-3 sm:grid-cols-[52px_1fr]">
-                <span className="pt-1 font-display text-lg leading-none text-[var(--orange)]">
+              <div className="mt-5 grid grid-cols-[48px_1fr] gap-3 sm:grid-cols-[52px_1fr]">
+                <span className="pt-1 font-display text-lg text-end leading-none text-[var(--orange)]">
                   {stage.number}
                 </span>
 
@@ -77,7 +77,7 @@ export default function Stages() {
                     {stage.title}
                   </h3>
 
-                  <p className="mt-3 max-w-[340px] text-[12px] leading-[1.75] text-[#5D5954] sm:text-[13px]">
+                  <p className="mt-3 max-w-[340px] text-xl leading-[1.75] text-[#5D5954]">
                     {stage.description}
                   </p>
                 </div>

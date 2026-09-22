@@ -4,7 +4,7 @@ import { FiArrowRight } from "react-icons/fi";
 export default function Introduction() {
   return (
     <section className="relative overflow-hidden bg-(--cream)">
-      <div className="mx-auto grid w-[calc(100%-24px)] max-w-[1400px] grid-cols-1 gap-10 px-1 py-14 sm:w-[calc(100%-32px)] sm:gap-12 sm:py-16 md:px-2 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:px-4 lg:py-24">
+      <div className="mx-auto grid w-[calc(100%-24px)] max-w-[1400px] grid-cols-1 gap-10 py-14 sm:w-[calc(100%-32px)] sm:gap-12 sm:py-16 md:px-2 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:py-24">
         <div>
           <div className="mb-7 flex items-center gap-3">
             <span className="h-5 w-1 bg-[#FF6634]" />

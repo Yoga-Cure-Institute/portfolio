@@ -232,7 +232,7 @@ export default function Navbar() {
         {/* WhatsApp */}
         <a
           ref={whatsappRef}
-          href="https://wa.me/919830966003"
+          href="https://wa.me/919830966003?text=Hello%20Yoga%20Cure%20Institute%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs%20and%20enrollment%20details."
           target="_blank"
           rel="noopener noreferrer"
           className="hidden shrink-0 items-center gap-2 rounded-md bg-[#22C55E] px-4 py-3 text-xs font-bold uppercase tracking-[0.06em] text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#16A34A] lg:flex"
@@ -288,7 +288,7 @@ export default function Navbar() {
 
           <a
             ref={mobileWhatsappRef}
-            href="https://wa.me/919830966003"
+            href="https://wa.me/919830966003?text=Hello%20Yoga%20Cure%20Institute%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs%20and%20enrollment%20details."
             target="_blank"
             rel="noopener noreferrer"
             className="mt-5 flex items-center justify-center rounded-md border border-white/10 bg-[#22C55E] px-5 py-4 text-[11px] font-bold uppercase tracking-[0.06em] text-white"

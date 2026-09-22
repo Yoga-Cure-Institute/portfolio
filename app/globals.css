@@ -2,12 +2,26 @@
 
 :root {
   --ink: #161616;
-  --paper: #DFE0C5;
-  --cream: #F2EEE5;
-  --orange: #F54900;
-  --brown: #3B2A26;
+  --paper: #dfe0c5;
+  --paper-deep: #c9c7a8;
+  --paper-soft: #f6f1e7;
+  --cream: #f2eee5;
+  --cream-deep: #e3d9c4;
+  --orange: #f54900;
+  --orange-soft: #f7a97a;
+  --orange-deep: #c63d00;
+  --brown: #3b2a26;
+  --brown-soft: #6a4e45;
+  --brown-light: #8b6a5d;
   --gold: #b68a3a;
+  --gold-soft: #d7b66a;
+  --gold-deep: #9a6f22;
   --sage: #6f775f;
+  --sage-soft: #a9b191;
+  --sage-deep: #4a533f;
+  --sand: #d8c4a2;
+  --terracotta: #c96f4a;
+  --clay: #a15c3b;
 }
 
 * {
