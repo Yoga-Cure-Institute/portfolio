@@ -10,7 +10,7 @@ export default function HeritagePreview() {
           <div className="mb-7 flex items-center gap-3">
             <span className="h-5 w-[3px] bg-[var(--orange)]" />
 
-            <span className="text-[14px] font-bold uppercase tracking-[0.14em] text-[var(--orange)]">
+            <span className="text-16px] font-bold uppercase tracking-[0.14em] text-[var(--orange)]">
               Our Heritage
             </span>
           </div>
@@ -21,7 +21,7 @@ export default function HeritagePreview() {
             living tradition.
           </h2>
 
-          <p className="mt-7 max-w-[560px] text-[13px] leading-[1.75] text-white/75 sm:text-[14px]">
+          <p className="mt-7 max-w-[560px] text-[13px] leading-[1.75] text-white/75 sm:text-16px]">
             Our work is inspired by one of the oldest and rich lineage of yoga
             in India - its teachers, scriptures and timeless wisdom. We honor
             this heritage by keeping the practice authentic, traditional and
@@ -30,7 +30,7 @@ export default function HeritagePreview() {
 
           <Link
             href="/heritage"
-            className="group mt-6 inline-flex items-center gap-3 text-[14px] font-bold uppercase tracking-[0.14em] text-[var(--orange)]"
+            className="group mt-6 inline-flex items-center gap-3 text-16px] font-bold uppercase tracking-[0.14em] text-[var(--orange)]"
           >
             <span>Explore Our Heritage</span>
 

@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { FiCompass, FiUsers, FiActivity, FiSun } from "react-icons/fi";
+
+export const metadata: Metadata = {
+  title: "Our Work",
+  description:
+    "Learn how Yoga Cure Institute carries therapeutic yoga, authentic teaching and individual care forward from its Kolkata lineage.",
+};
 
 const principles = [
   {
@@ -45,7 +52,7 @@ export default function AboutPage() {
             <div className="mb-4 flex items-center gap-3">
               <span className="h-[2px] w-4 bg-(--orange)" />
 
-              <span className="text-[14px] font-bold uppercase tracking-[0.22em] text-(--orange)">
+              <span className="text-16px] font-bold uppercase tracking-[0.22em] text-(--orange)">
                 Our Work
               </span>
             </div>
@@ -64,7 +71,7 @@ export default function AboutPage() {
           {/* Right vertical statement */}
           <div className="absolute right-0 bottom-15 hidden lg:block">
             <div className="flex items-start gap-3">
-              <p className="text-[14px] font-medium uppercase leading-[1.8] tracking-[0.22em] text-white/65">
+              <p className="text-16px] font-medium uppercase leading-[1.8] tracking-[0.22em] text-white/65">
                 Tradition
                 <br />
                 Practice
@@ -85,7 +92,7 @@ export default function AboutPage() {
           <div className="mb-7 flex items-center gap-3">
             <span className="h-5 w-[2px] bg-(--orange)" />
 
-            <span className="text-[14px] font-bold uppercase tracking-[0.22em] text-(--orange)">
+            <span className="text-16px] font-bold uppercase tracking-[0.22em] text-(--orange)">
               About Us
             </span>
           </div>
@@ -100,7 +107,7 @@ export default function AboutPage() {
                 Humanity
               </h2>
 
-              <div className="mt-7 max-w-[650px] space-y-5 text-[14px] leading-[1.75] text-(--ink) sm:text-[16px]">
+              <div className="mt-7 max-w-[650px] space-y-5 text-16px] leading-[1.75] text-(--ink) sm:text-[16px]">
                 <p>
                   From ancient times India has enunciated that All life is Yoga.
                   Over generations saints from this great land have imparted the
@@ -160,11 +167,11 @@ export default function AboutPage() {
                   </div>
 
                   <div>
-                    <h3 className="text-[14px] font-bold uppercase tracking-[0.12em] text-[#292725]">
+                    <h3 className="text-16px] font-bold uppercase tracking-[0.12em] text-[#292725]">
                       {item.title}
                     </h3>
 
-                    <p className="mt-1 max-w-[200px] text-[14px] leading-[1.45] text-[#6A655F]">
+                    <p className="mt-1 max-w-[200px] text-16px] leading-[1.45] text-[#6A655F]">
                       {item.text}
                     </p>
                   </div>

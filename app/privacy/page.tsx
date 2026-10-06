@@ -77,7 +77,7 @@ export default function PrivacyPage() {
           <div className="mb-7 flex items-center gap-3">
             <span className="h-5 w-1 bg-[var(--orange)]" />
 
-            <span className="text-[14px] font-bold uppercase tracking-[0.16em] text-[var(--orange)]">
+            <span className="text-16px] font-bold uppercase tracking-[0.16em] text-[var(--orange)]">
               Legal
             </span>
           </div>
@@ -93,7 +93,7 @@ export default function PrivacyPage() {
             Institute handles information provided through this website.
           </p>
 
-          <p className="mt-5 text-[14px] font-semibold uppercase tracking-[0.12em] text-black/40">
+          <p className="mt-5 text-16px] font-semibold uppercase tracking-[0.12em] text-black/40">
             Effective date: September, 2026
           </p>
         </div>
@@ -105,7 +105,7 @@ export default function PrivacyPage() {
           {/* Side Label */}
           <aside className="hidden lg:block">
             <div className="sticky top-8">
-              <p className="text-[14px] font-bold uppercase tracking-[0.16em] text-[var(--orange)]">
+              <p className="text-16px] font-bold uppercase tracking-[0.16em] text-[var(--orange)]">
                 Privacy
               </p>
 

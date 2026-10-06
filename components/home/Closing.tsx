@@ -25,8 +25,9 @@ export default function Closing() {
           <span className="h-[2px] w-8 bg-[var(--orange)] md:w-10" />
 
           <div>
-            <p className="text-[11px] font-bold uppercase leading-[1.4] tracking-[0.14em] text-white sm:text-[12px] md:text-[14px]">
-              Through Yoga A Kinder,<br/> Calmer World
+            <p className="text-[11px] font-bold uppercase leading-[1.4] tracking-[0.14em] text-white sm:text-[12px] md:text-16px]">
+              Through Yoga A Kinder,
+              <br /> Calmer World
             </p>
           </div>
         </div>

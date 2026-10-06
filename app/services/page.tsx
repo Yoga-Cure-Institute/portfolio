@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -8,6 +9,12 @@ import {
   FiArrowRight,
   FiArrowUpRight,
 } from "react-icons/fi";
+
+export const metadata: Metadata = {
+  title: "Yoga Therapy Services",
+  description:
+    "Explore individualized yoga therapy for men and women at Yoga Cure Institute, with guidance tailored to health, body and mind.",
+};
 
 const services = [
   {
@@ -69,14 +76,13 @@ export default function ServicesPage() {
             <div className="mb-4 flex items-center gap-3">
               <span className="h-[2px] w-4 bg-(--orange)" />
 
-              <span className="text-[14px] font-bold uppercase tracking-[0.22em] text-(--orange)">
+              <span className="text-16px] font-bold uppercase tracking-[0.22em] text-(--orange)">
                 Our Services
               </span>
             </div>
 
             <h1 className="font-display text-[clamp(2.8rem,8vw,6rem)] font-normal leading-[0.9] tracking-[-0.025em]">
-              Yoga Therapy for
-              Every Individual
+              Yoga Therapy for Every Individual
             </h1>
 
             <p className="mt-5 max-w-[330px] leading-relaxed text-white/65">
@@ -94,7 +100,7 @@ export default function ServicesPage() {
           <div className="mb-7 flex items-center gap-3">
             <span className="h-5 w-[2px] bg-(--orange)" />
 
-            <span className="text-[14px] font-bold uppercase tracking-[0.22em] text-(--orange)">
+            <span className="text-16px] font-bold uppercase tracking-[0.22em] text-(--orange)">
               What We Offer
             </span>
           </div>
@@ -103,7 +109,7 @@ export default function ServicesPage() {
             Our Services
           </h2>
 
-          <p className="mt-7 max-w-[780px] text-[14px] leading-[1.75] text-[#69625A] sm:text-[16px]">
+          <p className="mt-7 max-w-[780px] text-16px] leading-[1.75] text-[#69625A] sm:text-[16px]">
             At Yoga Cure Institute, we offer two dedicated therapeutic programs,
             one for gents and one for ladies, each conducted in a warm,
             disciplined and cordial atmosphere that helps every individual focus
@@ -125,13 +131,13 @@ export default function ServicesPage() {
                   {service.title}
                 </h3>
 
-                <p className="mt-5 text-[14px] leading-[1.75] text-[#69625A] sm:text-[16px]">
+                <p className="mt-5 text-16px] leading-[1.75] text-[#69625A] sm:text-[16px]">
                   {service.description}
                 </p>
 
                 <Link
                   href="/contact"
-                  className="group mt-7 inline-flex items-center gap-2 text-[14px] font-bold uppercase tracking-[0.15em] text-[#6B3020]"
+                  className="group mt-7 inline-flex items-center gap-2 text-16px] font-bold uppercase tracking-[0.15em] text-[#6B3020]"
                 >
                   Enquire Now
                   <FiArrowUpRight
@@ -149,7 +155,7 @@ export default function ServicesPage() {
       <section className="bg-(--paper) py-14 sm:py-16 md:py-20 lg:py-24">
         <div className="mx-auto max-w-[1400px]">
           <div className="text-center">
-            <div className="mb-4 text-[14px] font-bold uppercase tracking-[0.22em] text-(--orange)">
+            <div className="mb-4 text-16px] font-bold uppercase tracking-[0.22em] text-(--orange)">
               Our Approach
             </div>
 
@@ -157,7 +163,7 @@ export default function ServicesPage() {
               A Path Tailored to You
             </h2>
 
-            <p className="mt-4 text-[14px] leading-[1.75] text-[#696D5A] sm:text-[16px]">
+            <p className="mt-4 text-16px] leading-[1.75] text-[#696D5A] sm:text-[16px]">
               Every individual is unique. Our programs are designed with careful
               guidance, compassion and deep understanding.
             </p>
@@ -175,7 +181,11 @@ export default function ServicesPage() {
                 >
                   {index < approach.length - 1 && (
                     <span className="absolute right-[-18px] top-5 hidden text-(--orange) lg:block">
-                      <FiArrowRight size={24} strokeWidth={1.5} aria-hidden="true" />
+                      <FiArrowRight
+                        size={24}
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      />
                     </span>
                   )}
 
@@ -187,7 +197,7 @@ export default function ServicesPage() {
                     {item.title}
                   </h3>
 
-                  <p className="mt-2 max-w-[200px] text-[14px] leading-[1.45] text-[#696D5A]">
+                  <p className="mt-2 max-w-[200px] text-16px] leading-[1.45] text-[#696D5A]">
                     {item.description}
                   </p>
                 </div>

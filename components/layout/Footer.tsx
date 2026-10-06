@@ -117,7 +117,7 @@ export default function Footer() {
         <div ref={brandRef} className="md:col-span-2 lg:col-span-1">
           <Link href="/" className="inline-flex">
             <Image
-              src="/logo.svg"
+              src="/Yoga_Cure_Institute_Logo.png"
               alt="Yoga Cure Institute"
               width={205}
               height={60}

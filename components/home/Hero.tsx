@@ -56,11 +56,11 @@ export default function Hero() {
               ॥ योगश्चित्तवृत्तिनिरोधः ॥
             </p>
 
-            <p className="mt-4 font-display text-[14px] italic text-white/85 sm:text-[15px] md:text-[20px]">
+            <p className="mt-4 font-display text-16px] italic text-white/85 sm:text-[15px] md:text-[20px]">
               Yoga is the base for Meditation.
             </p>
 
-            <p className="mt-1 text-[14px] italic tracking-wide text-white/75 sm:text-[16px] md:text-[18px]">
+            <p className="mt-1 text-16px] italic tracking-wide text-white/75 sm:text-[16px] md:text-[18px]">
               — Paramhansa Yogananda
             </p>
           </div>

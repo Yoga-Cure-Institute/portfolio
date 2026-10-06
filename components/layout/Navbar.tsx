@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { FiMenu, FiX, FiArrowUpRight } from "react-icons/fi";
@@ -20,6 +21,8 @@ const navItems = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const pathname = usePathname();
+
   const headerRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLAnchorElement>(null);
   const navRef = useRef<HTMLElement>(null);
@@ -33,6 +36,14 @@ export default function Navbar() {
     if (element && !mobileLinksRef.current.includes(element)) {
       mobileLinksRef.current.push(element);
     }
+  };
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
   };
 
   useGSAP(
@@ -201,7 +212,7 @@ export default function Navbar() {
           className="shrink-0"
         >
           <Image
-            src="/logo.svg"
+            src="/Yoga_Cure_Institute_Logo.png"
             alt="Yoga Cure Institute"
             width={174}
             height={48}
@@ -216,17 +227,31 @@ export default function Navbar() {
           aria-label="Main navigation"
           className="ml-auto hidden items-center gap-7 lg:flex"
         >
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="group relative py-8 text-xs font-medium uppercase tracking-[0.07em] text-white/75 transition-colors duration-200 hover:text-white"
-            >
-              {item.label}
+          {navItems.map((item) => {
+            const active = isActive(item.href);
 
-              <span className="absolute bottom-5 left-0 h-0.5 w-0 bg-[#FF6634] transition-all duration-300 group-hover:w-full" />
-            </Link>
-          ))}
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`group relative py-8 text-xs uppercase tracking-[0.07em] transition-colors duration-200 ${
+                  active
+                    ? "font-semibold text-white"
+                    : "font-medium text-white/75 hover:text-white"
+                }`}
+              >
+                {item.label}
+
+                {/* Active / hover underline */}
+                <span
+                  className={`absolute bottom-5 left-0 h-0.5 bg-[#FF6634] transition-all duration-300 ${
+                    active ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         {/* WhatsApp */}
@@ -268,23 +293,43 @@ export default function Navbar() {
         className="hidden overflow-hidden border-t border-white/10 lg:hidden"
       >
         <nav className="mx-auto w-[calc(100%-32px)] max-w-350 pb-6">
-          {navItems.map((item, index) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              ref={addMobileLink}
-              onClick={() => setMenuOpen(false)}
-              className="grid grid-cols-[35px_1fr_auto] items-center gap-2 border-b border-white/8 py-5 text-[15px] text-white/85"
-            >
-              <span className="text-[10px] tracking-wider text-[#FF6634]">
-                {String(index + 1).padStart(2, "0")}
-              </span>
+          {navItems.map((item, index) => {
+            const active = isActive(item.href);
 
-              {item.label}
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                ref={addMobileLink}
+                onClick={() => setMenuOpen(false)}
+                aria-current={active ? "page" : undefined}
+                className={`grid grid-cols-[35px_1fr_auto] items-center gap-2 border-b border-white/8 py-5 text-[15px] transition-colors duration-200 ${
+                  active ? "text-white" : "text-white/85 hover:text-white"
+                }`}
+              >
+                <span
+                  className={`text-[10px] tracking-wider ${
+                    active
+                      ? "font-semibold text-[#FF6634]"
+                      : "text-[#FF6634]/60"
+                  }`}
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
-              <FiArrowUpRight size={18} className="text-white/40" />
-            </Link>
-          ))}
+                <span className={active ? "font-semibold" : ""}>
+                  {item.label}
+                </span>
+
+                <FiArrowUpRight
+                  size={18}
+                  className={`transition-colors ${
+                    active ? "text-[#FF6634]" : "text-white/40"
+                  }`}
+                />
+              </Link>
+            );
+          })}
 
           <a
             ref={mobileWhatsappRef}

@@ -8,16 +8,14 @@ const stages = [
     title: "Yoga Cure -- Gents",
     description:
       "Traditional system of yoga practice for specific health conditions, general fitness and core strength training.",
-    image:
-      "/images/home/Ardha_Chandrasana.png",
+    image: "/images/home/Ardha_Chandrasana.png",
   },
   {
     number: "02",
     title: "Yoga Cure -- Ladies",
     description:
       "Customized system of yoga practice for hormonal, respiratory and other health conditions.",
-    image:
-      "/images/home/Rooma_De_Maschendrasana.jpg",
+    image: "/images/home/Rooma_De_Maschendrasana.jpg",
   },
 ];
 
@@ -30,7 +28,7 @@ export default function Stages() {
             <div className="mb-6 flex items-center gap-3">
               <span className="h-5 w-[3px] bg-[var(--orange)]" />
 
-              <span className="text-[14px] font-bold uppercase tracking-[0.14em] text-[var(--orange)]">
+              <span className="text-16px] font-bold uppercase tracking-[0.14em] text-[var(--orange)]">
                 Our Services
               </span>
             </div>
@@ -42,7 +40,7 @@ export default function Stages() {
 
           <Link
             href="/services"
-            className="group flex shrink-0 items-center gap-3 self-start text-[14px] font-bold uppercase tracking-[0.12em] text-[var(--orange)] md:self-end md:pb-2"
+            className="group flex shrink-0 items-center gap-3 self-start text-16px] font-bold uppercase tracking-[0.12em] text-[var(--orange)] md:self-end md:pb-2"
           >
             <span>View All Services</span>
 

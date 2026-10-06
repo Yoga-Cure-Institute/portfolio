@@ -9,7 +9,7 @@ export default function Introduction() {
           <div className="mb-7 flex items-center gap-3">
             <span className="h-5 w-1 bg-[#FF6634]" />
 
-            <span className="text-[14px] font-bold uppercase tracking-[0.14em] text-[#FF6634]">
+            <span className="text-16px] font-bold uppercase tracking-[0.14em] text-[#FF6634]">
               About Us
             </span>
           </div>
@@ -33,7 +33,7 @@ export default function Introduction() {
           >
             <span className="h-0.5 w-7 bg-[#FF6634] transition-all duration-300 group-hover:w-10" />
 
-            <span className="text-[14px]">Our Work</span>
+            <span className="text-16px]">Our Work</span>
 
             <FiArrowRight
               size={14}
@@ -45,14 +45,13 @@ export default function Introduction() {
         <div className="flex items-center">
           <blockquote className="max-w-150">
             <p className="font-display text-[clamp(2.2rem,5vw,3.8rem)] font-normal italic leading-[1.08] tracking-[-0.02em] text-[#5B5651]">
-              “Yoga is not just what you
-              do on the mat, but how you
-              breathe in the world.”
+              “Yoga is not just what you do on the mat, but how you breathe in
+              the world.”
             </p>
 
             <div className="mt-7 h-0.5 w-10 bg-[#FF6634]" />
 
-            <footer className="mt-5 text-[14px] font-bold uppercase tracking-[0.14em] text-[#514C47]">
+            <footer className="mt-5 text-16px] font-bold uppercase tracking-[0.14em] text-[#514C47]">
               A healthier humanity through yoga
             </footer>
           </blockquote>
