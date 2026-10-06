@@ -105,7 +105,7 @@ export default function TermsPage() {
           <div className="mb-7 flex items-center gap-3">
             <span className="h-5 w-1 bg-[var(--orange)]" />
 
-            <span className="text-[14px] font-bold uppercase tracking-[0.16em] text-[var(--orange)]">
+            <span className="text-16px] font-bold uppercase tracking-[0.16em] text-[var(--orange)]">
               Legal
             </span>
           </div>
@@ -121,7 +121,7 @@ export default function TermsPage() {
             use the Yoga Cure Institute website.
           </p>
 
-          <p className="mt-5 text-[14px] font-semibold uppercase tracking-[0.12em] text-black/40">
+          <p className="mt-5 text-16px] font-semibold uppercase tracking-[0.12em] text-black/40">
             Effective date: September, 2026
           </p>
         </div>
@@ -133,7 +133,7 @@ export default function TermsPage() {
           {/* Side Label */}
           <aside className="hidden lg:block">
             <div className="sticky top-8">
-              <p className="text-[14px] font-bold uppercase tracking-[0.16em] text-[var(--orange)]">
+              <p className="text-16px] font-bold uppercase tracking-[0.16em] text-[var(--orange)]">
                 Terms
               </p>
 
@@ -180,7 +180,9 @@ export default function TermsPage() {
 
               <p className="mt-4 text-sm leading-7 text-black/60">
                 If you have questions about these Terms and Conditions, please
-                contact to the Yoga Cure Institute email address below mentioned only. Any phone call related to privacy or terms will not be entertained under any circumstances.
+                contact to the Yoga Cure Institute email address below mentioned
+                only. Any phone call related to privacy or terms will not be
+                entertained under any circumstances.
               </p>
 
               <div className="mt-6 space-y-2 text-sm">

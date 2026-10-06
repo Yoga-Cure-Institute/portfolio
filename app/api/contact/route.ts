@@ -1,114 +1,140 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2).max(80),
+
+  email: z.string().trim().email().max(150),
+
+  phone: z
+    .string()
+    .trim()
+    .refine(
+      (value) => value === "" || /^[+]?[0-9\s()-]{8,18}$/.test(value),
+      "Invalid phone number",
+    ),
+
+  subject: z.string().trim().min(3).max(120),
+
+  message: z.string().trim().min(20).max(3000),
+
+  consent: z.literal(true),
+
+  faxNumber: z.string().optional(),
+});
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    const {
-      name,
-      email,
-      phone,
-      subject,
-      message,
-      consent,
-      website,
-    } = body;
-
-    // Honeypot spam protection
-    if (website) {
-      return NextResponse.json(
-        { success: true, message: "Message sent successfully." },
-        { status: 200 }
-      );
-    }
-
-    // Validation
-    if (!name || !email || !message || !consent) {
+    // Spam honeypot
+    if (body.faxNumber) {
       return NextResponse.json(
         {
           success: false,
-          message: "Please fill in all required fields.",
+          message: "Please check the information you entered.",
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const result = contactSchema.safeParse(body);
 
-    if (!emailRegex.test(email)) {
+    if (!result.success) {
       return NextResponse.json(
         {
           success: false,
-          message: "Please enter a valid email address.",
+          message: "Please check the information you entered.",
+          errors: result.error.flatten().fieldErrors,
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    if (name.length > 100 || email.length > 150 || message.length > 5000) {
+    const { name, email, phone, subject, message } = result.data;
+
+    if (
+      !process.env.SMTP_HOST ||
+      !process.env.SMTP_PORT ||
+      !process.env.SMTP_USER ||
+      !process.env.SMTP_PASS ||
+      !process.env.CONTACT_RECEIVER_EMAIL
+    ) {
+      console.error("Missing SMTP environment variables.");
+
       return NextResponse.json(
         {
           success: false,
-          message: "One or more fields are too long.",
+          message:
+            "Email service is not configured. Please contact us directly.",
         },
-        { status: 400 }
+        { status: 500 },
       );
     }
 
-    // SMTP transporter
+    const smtpPort = Number(process.env.SMTP_PORT);
+    const smtpPassword = process.env.SMTP_PASS.replace(/\s+/g, "");
+
+    if (!Number.isInteger(smtpPort) || smtpPort < 1 || smtpPort > 65535) {
+      console.error("Invalid SMTP_PORT environment variable.");
+
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            "Email service is not configured correctly. Please contact us directly.",
+        },
+        { status: 500 },
+      );
+    }
+
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
+      port: smtpPort,
       secure: process.env.SMTP_SECURE === "true",
       auth: {
         user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
+        pass: smtpPassword,
       },
     });
 
-    // Verify SMTP connection
-    await transporter.verify();
-
-    const recipient = process.env.CONTACT_RECEIVER_EMAIL;
-
-    if (!recipient) {
-      throw new Error("CONTACT_RECEIVER_EMAIL is not configured.");
-    }
-
-    // Email sent to Yoga Cure Institute
     await transporter.sendMail({
       from: `"Yoga Cure Institute Website" <${process.env.SMTP_USER}>`,
-      to: recipient,
+      to: process.env.CONTACT_RECEIVER_EMAIL,
       replyTo: email,
-      subject: subject
-        ? `Website Enquiry: ${subject}`
-        : `New Website Enquiry from ${name}`,
+      subject: `Website Enquiry: ${subject}`,
 
       text: `
-New enquiry received from the Yoga Cure Institute website.
+New enquiry from the Yoga Cure Institute website.
 
 Name: ${name}
 Email: ${email}
 Phone: ${phone || "Not provided"}
-Subject: ${subject || "Not provided"}
+Subject: ${subject}
 
 Message:
 ${message}
       `.trim(),
 
       html: `
-        <div style="font-family: Arial, sans-serif; color: #292725; max-width: 650px;">
+        <div style="font-family: Arial, sans-serif; max-width: 650px; color: #292725;">
           <h2 style="color: #6B3020;">
             New Website Enquiry
           </h2>
 
           <p>
-            A new message has been submitted through the Yoga Cure Institute
+            A new message was submitted through the Yoga Cure Institute
             contact form.
           </p>
 
-          <table style="border-collapse: collapse; width: 100%; margin-top: 20px;">
+          <table
+            style="
+              width: 100%;
+              border-collapse: collapse;
+              margin-top: 20px;
+            "
+          >
             <tr>
               <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #ddd;">
                 Name
@@ -141,56 +167,52 @@ ${message}
                 Subject
               </td>
               <td style="padding: 10px; border-bottom: 1px solid #ddd;">
-                ${escapeHtml(subject || "Not provided")}
+                ${escapeHtml(subject)}
               </td>
             </tr>
           </table>
 
-          <div style="margin-top: 25px;">
-            <h3>Message</h3>
+          <h3 style="margin-top: 30px;">
+            Message
+          </h3>
 
-            <div
-              style="
-                background: #f3ebdd;
-                padding: 18px;
-                line-height: 1.6;
-                white-space: pre-wrap;
-              "
-            >
-              ${escapeHtml(message)}
-            </div>
+          <div
+            style="
+              background: #F3EBDD;
+              padding: 18px;
+              line-height: 1.7;
+              white-space: pre-wrap;
+            "
+          >
+            ${escapeHtml(message)}
           </div>
 
           <p style="margin-top: 30px; color: #777;">
-            This message was submitted through
-            yogacureinstitute.com
+            Reply directly to this email to respond to ${escapeHtml(name)}.
           </p>
         </div>
       `,
     });
 
-    return NextResponse.json(
-      {
-        success: true,
-        message: "Thank you. Your message has been sent successfully.",
-      },
-      { status: 200 }
-    );
+    return NextResponse.json({
+      success: true,
+      message: "Thank you. Your message has been sent successfully.",
+    });
   } catch (error) {
-    console.error("Contact form error:", error);
+    console.error("Contact API error:", error);
 
     return NextResponse.json(
       {
         success: false,
         message:
-          "We could not send your message right now. Please try again or contact us directly.",
+          "We could not send your message right now. Please try again later.",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 
-function escapeHtml(value: string): string {
+function escapeHtml(value: string) {
   return value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
